@@ -14,7 +14,7 @@
 package com.ipartek.formacion.nidea.pojo;
 
 public class Mesa {
-
+	// Constantes para aplicar
 	public static final int PRECIO_PATA = 1;
 	public static final int PRECIO_M2 = 5;
 	public static final int PRECIO_MATERIAL_MADERA = 4;
@@ -23,16 +23,84 @@ public class Mesa {
 	public static final int PRECIO_MATERIAL_PLASTICO = 2;
 	public static final int PRECIO_COLOR_CUSTOM = 23;
 	public static final String PRECIO_COLOR_NAME_CUSTOM = "Custom";
-
+	public static final String[] MATERIALES_LISTA = { "madera", "acero", "aluminio", "plastico" };
+	public static final int[] MATERIALES_LISTA_CODIGO = { 1, 2, 3, 4 };
 	public static final int MATERIAL_MADERA = 1;
 	public static final int MATERIAL_ACERO = 2;
 	public static final int MATERIAL_ALUMINIO = 3;
 	public static final int MATERIAL_PLASTICO = 4;
 
+	// Atributos de la Clase
+
 	private int numeroPatas;
 	private int dimension;
 	private String color;
 	private int material;
+	private boolean custom;
+
+	public static int getPrecioPata() {
+		return PRECIO_PATA;
+	}
+
+	public static int getPrecioM2() {
+		return PRECIO_M2;
+	}
+
+	public static int getPrecioMaterialMadera() {
+		return PRECIO_MATERIAL_MADERA;
+	}
+
+	public static int getPrecioMaterialAcero() {
+		return PRECIO_MATERIAL_ACERO;
+	}
+
+	public static int getPrecioMaterialAluminio() {
+		return PRECIO_MATERIAL_ALUMINIO;
+	}
+
+	public static int getPrecioMaterialPlastico() {
+		return PRECIO_MATERIAL_PLASTICO;
+	}
+
+	public static int getPrecioColorCustom() {
+		return PRECIO_COLOR_CUSTOM;
+	}
+
+	public static String getPrecioColorNameCustom() {
+		return PRECIO_COLOR_NAME_CUSTOM;
+	}
+
+	public static String[] getMaterialesLista() {
+		return MATERIALES_LISTA;
+	}
+
+	public static int[] getMaterialesListaCodigo() {
+		return MATERIALES_LISTA_CODIGO;
+	}
+
+	public static int getMaterialMadera() {
+		return MATERIAL_MADERA;
+	}
+
+	public static int getMaterialAcero() {
+		return MATERIAL_ACERO;
+	}
+
+	public static int getMaterialAluminio() {
+		return MATERIAL_ALUMINIO;
+	}
+
+	public static int getMaterialPlastico() {
+		return MATERIAL_PLASTICO;
+	}
+
+	public boolean isCustom() {
+		return custom;
+	}
+
+	public void setCustom(boolean custom) {
+		this.custom = custom;
+	}
 
 	public int getDimension() {
 		return dimension;

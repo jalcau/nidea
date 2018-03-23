@@ -24,19 +24,21 @@ public class MesaController extends HttpServlet {
 		// TODO Auto-generated method stub
 		Mesa m = new Mesa();
 		// Si parametros no son null recoger y crear mesa a medida
+
 		// Recoger parametros Siempre String
 
 		String sPatas = request.getParameter("patas");
 		String sDimension = request.getParameter("dimension");
-		if (sPatas != null) {
-			int patas = Integer.parseInt(sPatas);
-			int dimension = Integer.parseInt(sDimension);
-			m.setNumeroPatas(patas);
-			m.setDimension(dimension);
-		}
+
+		int patas = Integer.parseInt(sPatas);
+		int dimension = Integer.parseInt(sDimension);
+		m.setNumeroPatas(patas);
+		m.setDimension(dimension);
 
 		// enviar atributos a la JSP
 		request.setAttribute("mesa", m);
+		request.setAttribute("materiales", Mesa.MATERIALES_LISTA);
+		request.setAttribute("materialesCodigo", Mesa.MATERIALES_LISTA_CODIGO);
 
 		// ir a la JSP
 		request.getRequestDispatcher("mesa.jsp").forward(request, response);
