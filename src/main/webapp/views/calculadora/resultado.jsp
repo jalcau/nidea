@@ -1,20 +1,27 @@
+<!-- SOY UN RESULTADO -->
 
-<jsp:include page="templates/navbar.jsp"></jsp:include>
+<jsp:include page="/templates/navbar.jsp"></jsp:include>
+
+<div class="container">
+<h2>Resultado de la operacion</h2>
 
 <%
-	//Scriplet <%..... % >
-	String nombre="pepe";
-	String hora="10:58";
+	float resul =(Float)request.getAttribute("resultado");
 
 %>
 
-<h2>Hello <%=nombre%></h2>
-<p> <%=hora%></p>
-<a href="mesa.jsp">¿Quieres comprar una mesa?</a>
-<br>
-<a href="calculadora">Calculadora</a></li>
- 
-<jsp:include page="templates/footer.jsp"></jsp:include>
+<%="Resultado de la operacion <b> </b>" + resul %>
+</div>
+
+
+
+
+
+
+
+
+
+<jsp:include page="/templates/footer.jsp"></jsp:include>
 
 
 <!-- Latest compiled and minified CSS -->
