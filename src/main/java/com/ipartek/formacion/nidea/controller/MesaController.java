@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.nidea.pojo.Alert;
+import com.ipartek.formacion.nidea.pojo.Material;
 import com.ipartek.formacion.nidea.pojo.Mesa;
 
 /**
@@ -21,24 +23,55 @@ public class MesaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		Mesa m = new Mesa();
-		// Si parametros no son null recoger y crear mesa a medida
 
-		// Recoger parametros Siempre String
-
+		// recoger parametros *** SIEMPRE String ***
 		String sPatas = request.getParameter("patas");
-		String sDimension = request.getParameter("dimension");
 
-		int patas = Integer.parseInt(sPatas);
-		int dimension = Integer.parseInt(sDimension);
-		m.setNumeroPatas(patas);
-		m.setDimension(dimension);
+		// Si parametros no son NULL recoger y crear mesa a medida
+		if (sPatas != null) {
+
+			int patas = Integer.parseInt(sPatas);
+			try {
+				m.setNumeroPatas(patas);
+			} catch (Exception e) {
+
+				try {
+					m.setNumeroPatas(1);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
+				request.setAttribute("alert", new Alert(e.getMessage(), Alert.TIPO_WARNING));
+
+			}
+
+			String sDimnesion = request.getParameter("dimension");
+			int dimension = Integer.parseInt(sDimnesion);
+			m.setDimension(dimension);
+
+			String sCustom = request.getParameter("custom");
+			if (sCustom == null) {
+				m.setCustom(false);
+			} else { // viene 'on'
+				m.setCustom(true);
+
+				// color
+				String color = request.getParameter("color");
+				m.setColor(color);
+			}
+
+			String sMaterialId = request.getParameter("material");
+			int idMaterial = Integer.parseInt(sMaterialId);
+			m.setMaterial(new Material(idMaterial));
+
+		}
 
 		// enviar atributos a la JSP
 		request.setAttribute("mesa", m);
-		request.setAttribute("materiales", Mesa.MATERIALES_LISTA);
-		request.setAttribute("materialesCodigo", Mesa.MATERIALES_LISTA_CODIGO);
+		request.setAttribute("materiales", Material.NOMBRES);
+		request.setAttribute("materialesCodigo", Material.IDS);
 
 		// ir a la JSP
 		request.getRequestDispatcher("mesa.jsp").forward(request, response);
@@ -51,7 +84,6 @@ public class MesaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
