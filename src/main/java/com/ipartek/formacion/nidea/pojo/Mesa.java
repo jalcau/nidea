@@ -12,7 +12,7 @@ package com.ipartek.formacion.nidea.pojo;
 public class Mesa implements Cloneable {
 
 	/**
-	 * precio en â‚¬
+	 * precio en €
 	 */
 	public static final int PRECIO_PATA = 1;
 	public static final int PRECIO_M2 = 5;
@@ -112,7 +112,7 @@ public class Mesa implements Cloneable {
 	 * Calculamos el precio de la mesa en funcion de los materiales usados.
 	 * 
 	 * @see consultar todas las constantes definidas para los precios
-	 * @return int precio en â‚¬
+	 * @return int precio en €
 	 */
 	public int getPrecio() {
 

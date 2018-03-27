@@ -15,8 +15,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">Inicio <span class="sr-only">(current)</span></a></li>
-        <li><a href="mesa.jsp">CalculaPrecioMesa</a></li>
+        <li><a href="generar-mesa">CalculaPrecioMesa</a></li>
          <li><a href="calculadora">Calcular</a></li>
+         <li><a href="login">Login</a>
         <li class="dropdown">
           
            

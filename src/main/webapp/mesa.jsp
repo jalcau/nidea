@@ -1,6 +1,6 @@
 <%@page import="com.ipartek.formacion.nidea.pojo.Mesa"%>
 
-<jsp:include page="templates/head.jsp"></jsp:include>
+
 <jsp:include page="templates/navbar.jsp"></jsp:include>
 <jsp:include page="/templates/alert.jsp"></jsp:include>
 
@@ -45,7 +45,7 @@
 	
 	
 		<div class="checkbox" onclick="showColor()" >		
-			<p>Â¿ Quieres Personalizar el Color ? 
+			<p>¿ Quieres Personalizar el Color ? 
 				<input type="checkbox" name="custom" 
 				       id="custom" <%=(mesa.isCustom())?"checked":""%> 
 				       data-toggle="toggle" data-on="Si" data-off="No">

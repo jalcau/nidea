@@ -8,7 +8,7 @@ public class Alert {
 	// tipos de Alertas
 	public static final String TIPO_DANGER = "danger";
 	public static final String TIPO_WARNING = "warning";
-	public static final String TIPO_PRIMARY = "success";
+	public static final String TIPO_PRIMARY = "primary";
 
 	public Alert() {
 		super();

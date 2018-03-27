@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.nidea.model.MaterialDAO;
 import com.ipartek.formacion.nidea.pojo.Alert;
 import com.ipartek.formacion.nidea.pojo.Material;
 import com.ipartek.formacion.nidea.pojo.Mesa;
@@ -25,6 +26,7 @@ public class MesaController extends HttpServlet {
 			throws ServletException, IOException {
 
 		Mesa m = new Mesa();
+		MaterialDAO dao = new MaterialDAO();
 
 		// recoger parametros *** SIEMPRE String ***
 		String sPatas = request.getParameter("patas");
@@ -62,9 +64,11 @@ public class MesaController extends HttpServlet {
 				m.setColor(color);
 			}
 
-			String sMaterialId = request.getParameter("material");
-			int idMaterial = Integer.parseInt(sMaterialId);
-			m.setMaterial(new Material(idMaterial));
+			// material
+			String sMateriaPrecio = request.getParameter("materialPrecio");
+			Material material = new Material();
+			material.setPrecio(Integer.parseInt(sMateriaPrecio));
+			m.setMaterial(material);
 
 		}
 
